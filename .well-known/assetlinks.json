@@ -1,0 +1,12 @@
+[
+  {
+    "relation": ["delegate_permission/common.handle_all_urls"],
+    "target": {
+      "namespace": "android_app",
+      "package_name": "com.nightcode.luci",
+      "sha256_cert_fingerprints": [
+        "1C:46:A2:D9:19:F1:BB:24:C0:4E:0D:E6:47:95:9D:31:2A:9F:6A:A4:00:FF:88:63:F3:FF:F6:3E:90:4B:22:3C"
+      ]
+    }
+  }
+]
