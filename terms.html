@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Terms &amp; Conditions — nightcode.co.in</title>
+<meta name="description" content="Terms and Conditions for Yet Another LuCI App and the nightcode.co.in project site.">
+<link rel="stylesheet" href="styles.css">
+<link rel="canonical" href="https://nightcode.co.in/terms.html">
+</head>
+<body>
+
+<nav class="nav">
+  <div class="nav-inner">
+    <a href="index.html" class="nav-brand"><span class="prompt">tuhin@nightcode</span>:<span class="cursor">~</span>$</a>
+    <button class="nav-toggle" aria-label="Toggle menu" aria-expanded="false">menu</button>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="index.html">~/home</a></li>
+      <li><a href="app.html">~/app</a></li>
+      <li><a href="contact.html">~/contact</a></li>
+      <li><a href="privacy-policy.html">~/privacy</a></li>
+      <li><a href="terms.html" class="active">~/terms</a></li>
+    </ul>
+  </div>
+</nav>
+
+<main>
+  <article class="prose">
+    <h1>Terms &amp; Conditions</h1>
+    <span class="updated">nightcode.co.in &amp; Yet Another LuCI App &nbsp;·&nbsp; Last updated: August 7, 2026</span>
+
+    <p>These Terms and Conditions (&ldquo;Terms&rdquo;) govern your access to and use of the nightcode.co.in website and the &ldquo;Yet Another LuCI&rdquo; mobile application (collectively, the &ldquo;Service&rdquo;). By using the Service, you agree to these Terms. If you do not agree, please discontinue use.</p>
+
+    <h2>1. Acceptable Use</h2>
+    <ul>
+      <li>You agree to use the Service only for lawful purposes and in a manner that does not infringe the rights of, or restrict the use of, the Service by any third party.</li>
+      <li>You must not misuse the Service by attempting to disrupt, reverse-engineer for malicious purposes, or gain unauthorized access to any router, system, or network that you do not own or have explicit permission to manage.</li>
+      <li>The App is a client-side administration tool; you are solely responsible for the routers you connect to and any changes you make to their configuration.</li>
+    </ul>
+
+    <h2>2. No Warranty</h2>
+    <p>The Service is provided &ldquo;as is&rdquo; and &ldquo;as available&rdquo;, without warranties of any kind — express or implied — including but not limited to merchantability, fitness for a particular purpose, or non-infringement. The author does not warrant that the Service will be uninterrupted, error-free, or secure, or that any defect will be corrected.</p>
+
+    <h2>3. Limitation of Liability</h2>
+    <p>To the maximum extent permitted by applicable law, the author shall not be liable for any indirect, incidental, special, consequential, or punitive damages — including loss of data, loss of router access, network downtime, or business interruption — arising out of or related to your use of the Service, whether based on warranty, contract, tort, or any other legal theory.</p>
+
+    <h2>4. Intellectual Property</h2>
+    <ul>
+      <li><strong>Community Edition (GitHub):</strong> The source code of the community edition is licensed under the <a href="https://github.com/nightcodex7/yet-another-luci-app/blob/main/LICENSE" target="_blank" rel="noopener">Apache License 2.0</a>. You may use, modify, and distribute it in accordance with that license.</li>
+      <li><strong>Play Store Edition:</strong> The version distributed via Google Play is subject to the standard <a href="https://play.google.com/intl/en_us/about/play-terms/" target="_blank" rel="noopener">Google Play Terms of Service</a> in addition to these Terms.</li>
+      <li><strong>Website content:</strong> The design, text, and branding of nightcode.co.in are © Tuhin Garai. Project names and links belong to their respective repositories.</li>
+    </ul>
+
+    <h2>5. Third-Party Services</h2>
+    <p>The App integrates Google AdMob (advertising) and Google Play Billing (in-app purchases). These services are governed by their own terms and privacy policies. The author is not responsible for the data practices of these third parties.</p>
+
+    <h2>6. Governing Law &amp; Jurisdiction</h2>
+    <p>These Terms are governed by the laws of India. Any disputes arising out of or relating to the Service shall be subject to the exclusive jurisdiction of the courts located in India.</p>
+
+    <h2>7. Changes to These Terms</h2>
+    <p>The author reserves the right to update or modify these Terms at any time. The &ldquo;Last updated&rdquo; date at the top of this page reflects the most recent revision. Continued use of the Service after changes are posted constitutes acceptance of the updated Terms.</p>
+
+    <h2>8. Contact</h2>
+    <p>Questions about these Terms can be directed to <a href="mailto:tuhingarai.dev+support@gmail.com">tuhingarai.dev+support@gmail.com</a>.</p>
+
+    <a href="index.html" class="back-link">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+      back to home
+    </a>
+  </article>
+</main>
+
+<footer>
+  <div class="foot-inner">
+    <div class="foot-links">
+      <a href="privacy-policy.html">Privacy Policy</a>
+      <a href="terms.html">Terms &amp; Conditions</a>
+      <a href="contact.html">Contact</a>
+    </div>
+    <div class="foot-status">
+      <div><span class="ok">●</span> System Status: <span class="ok">Active &amp; Operational</span></div>
+      <div>Env: <span class="accent">Production</span> &nbsp;|&nbsp; <span id="year">2026</span> &nbsp;|&nbsp; nightcode.co.in</div>
+    </div>
+  </div>
+</footer>
+
+<script>
+  (function () {
+    var t = document.querySelector('.nav-toggle');
+    var l = document.getElementById('navLinks');
+    if (t && l) t.addEventListener('click', function () {
+      var open = l.classList.toggle('open');
+      t.setAttribute('aria-expanded', open ? 'true' : 'false');
+    });
+    var y = document.getElementById('year');
+    if (y) y.textContent = new Date().getFullYear();
+  })();
+</script>
+</body>
+</html>

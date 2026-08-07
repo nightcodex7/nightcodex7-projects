@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Yet Another LuCI for OpenWrt — Manage OpenWrt from Android</title>
+<meta name="description" content="Yet Another LuCI — manage OpenWrt routers from your Android phone. Package management (OPKG/APK), firewall control (iptables/nftables), network topology, wireless client management, multi-router support.">
+<link rel="stylesheet" href="styles.css">
+<link rel="canonical" href="https://nightcode.co.in/app.html">
+</head>
+<body>
+
+<nav class="nav">
+  <div class="nav-inner">
+    <a href="index.html" class="nav-brand"><span class="prompt">tuhin@nightcode</span>:<span class="cursor">~</span>$</a>
+    <button class="nav-toggle" aria-label="Toggle menu" aria-expanded="false">menu</button>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="index.html">~/home</a></li>
+      <li><a href="app.html" class="active">~/app</a></li>
+      <li><a href="contact.html">~/contact</a></li>
+      <li><a href="privacy-policy.html">~/privacy</a></li>
+      <li><a href="terms.html">~/terms</a></li>
+    </ul>
+  </div>
+</nav>
+
+<main>
+  <section class="app-hero">
+    <div class="eyebrow">// app</div>
+    <h1>Yet Another LuCI <span style="color:var(--accent);">for OpenWrt</span></h1>
+    <p class="tag">Manage OpenWrt routers from your Android phone.</p>
+    <p class="desc">A native Android client for OpenWrt router administration — package management (OPKG/APK), firewall control (iptables &amp; nftables), network topology visualization, wireless client management, and multi-router support, all over ubus/RPCD.</p>
+  </section>
+
+  <section>
+    <div class="section-head"><span class="hash">#</span><h2>download</h2><span class="meta">cat ~/releases/latest</span></div>
+    <div class="downloads">
+      <div class="dl play">
+        <span class="label">Play Store</span>
+        <span class="title">Get it on Google Play</span>
+        <span class="sub">Official release with AdMob-free paid tiers (Plus / Pro / Lifetime).</span>
+        <a class="btn" href="https://play.google.com/store/apps/details?id=com.nightcode.luci" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M3.6 1.7 14 12 3.6 22.3c-.3-.2-.5-.6-.5-1V2.7c0-.4.2-.8.5-1zm12 10.3 2.7 2.7-9.5 5.5 6.8-8.2zM5.8 1.5l9.5 5.5-2.7 2.7-6.8-8.2zm12.9 7.6 2.9 1.7c.6.3.6 1.1 0 1.4l-2.9 1.7L15.6 12l3.1-2.9z"/></svg>
+          Google Play
+        </a>
+      </div>
+      <div class="dl gh">
+        <span class="label">Open Source</span>
+        <span class="title">Community Edition</span>
+        <span class="sub">Free &amp; open source on GitHub, Apache-2.0 licensed.</span>
+        <a class="btn" href="https://github.com/nightcodex7/yet-another-luci-app/releases/latest" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 .5C5.37.5 0 5.78 0 12.29c0 5.21 3.44 9.63 8.21 11.19.6.11.82-.25.82-.56v-2.02c-3.34.71-4.04-1.59-4.04-1.59-.55-1.37-1.34-1.74-1.34-1.74-1.09-.74.08-.73.08-.73 1.21.08 1.85 1.22 1.85 1.22 1.07 1.8 2.81 1.28 3.5.98.11-.76.42-1.28.76-1.57-2.67-.3-5.47-1.31-5.47-5.84 0-1.29.47-2.34 1.22-3.17-.12-.3-.53-1.51.12-3.15 0 0 1-.31 3.3 1.21a11.6 11.6 0 0 1 6 0c2.3-1.52 3.3-1.21 3.3-1.21.65 1.64.24 2.85.12 3.15.76.83 1.22 1.88 1.22 3.17 0 4.54-2.81 5.53-5.49 5.83.43.36.81 1.08.81 2.18v3.23c0 .31.22.68.83.56A12.01 12.01 0 0 0 24 12.29C24 5.78 18.63.5 12 .5Z"/></svg>
+          GitHub Releases
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="section-head"><span class="hash">#</span><h2>screenshots</h2><span class="meta">ls assets/screenshots</span></div>
+    <div id="shots-loading" class="shots-loading">fetching screenshots…</div>
+    <div id="shots-fallback" class="shots-fallback" hidden>Screenshots unavailable right now. Visit the <a href="https://github.com/nightcodex7/yet-another-luci-app" target="_blank" rel="noopener">GitHub repository</a> to view them.</div>
+    <div id="shots-grid" class="shots-grid" hidden></div>
+  </section>
+
+  <section>
+    <div class="section-head"><span class="hash">#</span><h2>features</h2><span class="meta">cat FEATURES.md</span></div>
+    <ul class="feature-list">
+      <li><b>Package Management</b>Install, upgrade, and remove packages via OPKG and APK backends.</li>
+      <li><b>Firewall Control</b>Full firewall rule management supporting both fw3 (iptables) and fw4 (nftables).</li>
+      <li><b>Network Topology</b>Visualize your network layout for both DSA and swconfig switch configurations.</li>
+      <li><b>Wireless Status</b>WPA3-SAE aware wireless status and connected-client management.</li>
+      <li><b>Multi-Router Support</b>Manage several OpenWrt routers from a single app (paid tiers expand limits).</li>
+      <li><b>Secure Storage</b>Router credentials stored with hardware-backed encryption on-device — never transmitted.</li>
+    </ul>
+  </section>
+
+  <section>
+    <div class="section-head"><span class="hash">#</span><h2>license</h2><span class="meta">head LICENSE</span></div>
+    <div class="license-note">
+      <span class="key">Community edition:</span> licensed under <a href="https://github.com/nightcodex7/yet-another-luci-app/blob/main/LICENSE" target="_blank" rel="noopener">Apache-2.0</a>.<br>
+      Play Store edition subject to Google Play terms.
+    </div>
+    <a href="index.html" class="back-link">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+      back to home
+    </a>
+  </section>
+</main>
+
+<footer>
+  <div class="foot-inner">
+    <div class="foot-links">
+      <a href="privacy-policy.html">Privacy Policy</a>
+      <a href="terms.html">Terms &amp; Conditions</a>
+      <a href="contact.html">Contact</a>
+    </div>
+    <div class="foot-status">
+      <div><span class="ok">●</span> System Status: <span class="ok">Active &amp; Operational</span></div>
+      <div>Env: <span class="accent">Production</span> &nbsp;|&nbsp; <span id="year">2026</span> &nbsp;|&nbsp; nightcode.co.in</div>
+    </div>
+  </div>
+</footer>
+
+<script>
+  (function () {
+    var t = document.querySelector('.nav-toggle');
+    var l = document.getElementById('navLinks');
+    if (t && l) t.addEventListener('click', function () {
+      var open = l.classList.toggle('open');
+      t.setAttribute('aria-expanded', open ? 'true' : 'false');
+    });
+    var y = document.getElementById('year');
+    if (y) y.textContent = new Date().getFullYear();
+  })();
+
+  (function () {
+    var loading = document.getElementById('shots-loading');
+    var fallback = document.getElementById('shots-fallback');
+    var grid = document.getElementById('shots-grid');
+    if (!loading || !fallback || !grid) return;
+
+    fetch('https://api.github.com/repos/nightcodex7/yet-another-luci-app/contents/assets/screenshots', { headers: { 'Accept': 'application/vnd.github+json' } })
+      .then(function (res) {
+        if (!res.ok) throw new Error('HTTP ' + res.status);
+        return res.json();
+      })
+      .then(function (files) {
+        var images = Array.isArray(files)
+          ? files.filter(function (f) { return /\.(png|jpe?g|webp)$/i.test(f.name) && f.download_url; })
+          : [];
+        if (!images.length) { showFallback(); return; }
+        images.forEach(function (f) {
+          var img = document.createElement('img');
+          img.src = f.download_url;
+          img.alt = f.name.replace(/\.[^.]+$/, '');
+          img.loading = 'lazy';
+          grid.appendChild(img);
+        });
+        loading.hidden = true;
+        grid.hidden = false;
+      })
+      .catch(function () { showFallback(); });
+
+    function showFallback() {
+      loading.hidden = true;
+      grid.hidden = true;
+      fallback.hidden = false;
+    }
+  })();
+</script>
+</body>
+</html>
