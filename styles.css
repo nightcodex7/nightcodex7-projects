@@ -490,7 +490,7 @@ section:last-child { margin-bottom: 0; }
 }
 
 /* ---------- app page ---------- */
-.app-hero { text-align: left; padding: 48px 0 8px; border-bottom: 1px solid var(--border); margin-bottom: 48px; }
+.app-hero { text-align: left; padding: 0px 0 8px; border-bottom: none; margin-bottom: 5px; }
 .app-hero .eyebrow { font-family: var(--mono); font-size: 13px; color: var(--accent); margin-bottom: 10px; }
 .app-hero h1 {
   font-family: var(--mono);
