@@ -3,16 +3,35 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Privacy Policy — Yet Another LuCI App | nightcode.co.in</title>
-<meta name="description" content="Privacy Policy for Yet Another LuCI App — how router credentials, Google AdMob, and Google Play Billing data are handled.">
-<link rel="stylesheet" href="styles.css">
+<title>Privacy Policy — nightcode.co.in</title>
+<meta name="description" content="Privacy Policy for nightcode.co.in and Android apps by nightcodex7, including Yet Another LuCI App and future apps.">
+<link rel="icon" type="image/svg+xml" href="https://raw.githubusercontent.com/nightcodex7/nightcodex7/main/assets/favicon.svg">
+<link rel="icon" type="image/svg+xml" sizes="32x32" href="https://raw.githubusercontent.com/nightcodex7/nightcodex7/main/assets/favicon-32x32.svg">
+<link rel="icon" type="image/svg+xml" sizes="16x16" href="https://raw.githubusercontent.com/nightcodex7/nightcodex7/main/assets/favicon-16x16.svg">
+  <link rel="icon" id="site-favicon" href="assets/icons/favicon-dark.svg" type="image/svg+xml">
+  <script>
+  (function(){
+    var prefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+    var theme = prefersDark ? 'dark' : 'light';
+    document.documentElement.setAttribute('data-theme', theme);
+    var favicon = document.getElementById('site-favicon');
+    if (favicon) favicon.href = theme === 'dark' ? 'assets/icons/favicon-dark.svg' : 'assets/icons/favicon-light.svg';
+    var mq = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)');
+    if (mq && mq.addEventListener) mq.addEventListener('change', function(e){
+      var t = e.matches ? 'dark' : 'light';
+      document.documentElement.setAttribute('data-theme', t);
+      if (favicon) favicon.href = t === 'dark' ? 'assets/icons/favicon-dark.svg' : 'assets/icons/favicon-light.svg';
+    });
+  })();
+  </script>
+  <link rel="stylesheet" href="styles.css">
 <link rel="canonical" href="https://nightcode.co.in/privacy-policy.html">
 </head>
 <body>
 
 <nav class="nav">
   <div class="nav-inner">
-    <a href="index.html" class="nav-brand"><span class="prompt">tuhin@nightcode</span>:<span class="cursor">~</span>$</a>
+    <a href="index.html" class="nav-brand"><span class="prompt">nightcode</span>:<span class="cursor">~</span>$</a>
     <button class="nav-toggle" aria-label="Toggle menu" aria-expanded="false">menu</button>
     <ul class="nav-links" id="navLinks">
       <li><a href="index.html">~/home</a></li>
@@ -27,31 +46,32 @@
 <main>
   <article class="prose">
     <h1>Privacy Policy</h1>
-    <span class="updated">Yet Another LuCI App &nbsp;·&nbsp; Last updated: August 6, 2026</span>
+    <span class="updated">nightcode.co.in apps · Last updated: August 8, 2026</span>
 
-    <p>Yet Another LuCI App (&ldquo;we&rdquo;, &ldquo;our&rdquo;, or &ldquo;us&rdquo;) is committed to protecting your privacy. This Privacy Policy explains how our mobile application (&ldquo;the App&rdquo;) collects, uses, and safeguards your information when you use it to manage your OpenWrt/LuCI routers.</p>
+    <p>This Privacy Policy applies to nightcode.co.in and the Android applications published by nightcodex7, including Yet Another LuCI App for OpenWrt. It explains how data is collected, used, and safeguarded in the apps and on this website, including third-party SDKs such as Google AdMob and Google Play Billing.</p>
 
     <h2>1. Information We Collect</h2>
 
     <h3>a. User Credentials &amp; Local Router Data</h3>
     <ul>
-      <li>The App requires your router's IP address, username, and password to connect to your device.</li>
-      <li>These credentials are stored securely on your device using industry-standard hardware-backed encryption (via <code>flutter_secure_storage</code>).</li>
-      <li>We do <strong>not</strong> collect, transmit, or store your router credentials or network layout on any external servers.</li>
+      <li>Apps such as Yet Another LuCI App require your router's IP address, username, and password to connect to your device.</li>
+      <li>These credentials are stored securely on your device using industry-standard hardware-backed encryption (for example, via <code>flutter_secure_storage</code>).</li>
+      <li>We do <strong>not</strong> collect, transmit, or store your router credentials or router configuration data on external servers.</li>
     </ul>
 
     <h3>b. Third-Party Ad Services (Google AdMob &amp; UMP)</h3>
     <ul>
-      <li>For free-tier users, the App displays banner advertisements powered by <strong>Google AdMob</strong>.</li>
-      <li><strong>Data Collected:</strong> AdMob may automatically collect device identifiers (such as Android Advertising ID / IDFA), IP address, coarse location, and app interaction data for ad serving, personalization, and analytics.</li>
-      <li><strong>GDPR &amp; UK User Consent:</strong> In compliance with EU and UK privacy regulations (GDPR / ePrivacy), the App uses the <strong>Google User Messaging Platform (UMP) SDK</strong> to obtain user consent before requesting or personalizing ads. Users in these regions can manage or revoke consent preferences at any time.</li>
+      <li>For free-tier users, the apps may display advertisements powered by <strong>Google AdMob</strong>.</li>
+      <li><strong>Data Collected:</strong> Google AdMob may automatically collect device identifiers (such as Android Advertising ID), IP address, coarse location, app usage, and interaction data for ad serving, personalization, and analytics.</li>
+      <li><strong>GDPR &amp; UK User Consent:</strong> When required by regional privacy laws, the apps use the <strong>Google User Messaging Platform (UMP) SDK</strong> to request user consent before ads are personalized or served. Users can manage or revoke consent preferences where applicable.</li>
+      <li>Some future apps may be ad-free. This policy is written to remain flexible for both ad-supported and ads-free releases.</li>
     </ul>
 
     <h3>c. In-App Purchases &amp; Subscriptions (Google Play Billing)</h3>
     <ul>
-      <li>The App offers optional paid upgrades (Plus, Pro, and Lifetime) to remove ads and expand router limits.</li>
-      <li>All payment transactions, billing, and subscription renewals are processed exclusively by the <strong>Google Play Store</strong>.</li>
-      <li><strong>Data Handled:</strong> The App receives purchase receipts and entitlement state (e.g. tier level) from Google Play. The App does <strong>not</strong> collect, process, or store payment card numbers, bank information, or billing addresses.</li>
+      <li>The apps may offer optional paid upgrades or subscriptions to remove ads, unlock premium features, or expand router support.</li>
+      <li>All payment transactions and billing are handled by the <strong>Google Play Store</strong> and associated Google Play Billing services.</li>
+      <li><strong>Data Handled:</strong> The apps may receive purchase receipts, subscription entitlement state, and purchase validation details from Google Play. The apps do <strong>not</strong> collect or store payment card numbers, bank account information, or billing addresses.</li>
     </ul>
 
     <h2>2. How We Use Your Information</h2>
@@ -64,7 +84,7 @@
     <h2>3. Data Sharing and Disclosure</h2>
     <ul>
       <li><strong>Router Data:</strong> Zero router credentials or router configuration data are shared with third parties.</li>
-      <li><strong>Ad &amp; Billing Partners:</strong> Advertising ID and purchase validation tokens are shared directly with Google AdMob and Google Play Services in accordance with Google's Privacy Policy: <a href="https://policies.google.com/privacy" target="_blank" rel="noopener">policies.google.com/privacy</a>.</li>
+      <li><strong>Ad &amp; Billing Partners:</strong> Advertising IDs, purchase receipts, and related validation data may be shared with Google AdMob and Google Play Services in accordance with Google's privacy policy: <a href="https://policies.google.com/privacy" target="_blank" rel="noopener">policies.google.com/privacy</a>.</li>
     </ul>
 
     <h2>4. Security</h2>
@@ -80,7 +100,7 @@
     </ul>
 
     <div class="note">
-      <strong>Play Console Data Safety Notice:</strong> The Google Play Console &ldquo;Data Safety&rdquo; form declarations are maintained in lockstep with each release to disclose (1) Device or other IDs (Advertising ID) collected by Google AdMob, and (2) Financial Info / Purchase History handled by Google Play Billing.
+      <strong>Play Console Data Safety Notice:</strong> The Google Play Console “Data Safety” declarations should match this policy and accurately disclose that the apps may collect Device or other IDs (such as Advertising ID) through Google AdMob and Financial Info / Purchase History through Google Play Billing. This privacy policy page is publicly accessible, active, and not a PDF.
     </div>
 
     <h2>6. Contact Us</h2>

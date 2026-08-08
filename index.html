@@ -4,23 +4,50 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Tuhin Garai — DevOps/Cloud Engineer | nightcode.co.in</title>
+  <title>nightcode.co.in — Projects & Apps by nightcodex7</title>
   <meta name="description"
-    content="Tuhin Garai — DevOps/Cloud Engineer, DevSecOps & Linux Enthusiast. OpenWrt tooling, Kubernetes/AWS cloud-native deployments, serverless monitoring, and Flutter apps.">
+    content="nightcode.co.in features projects and Android apps by nightcodex7, including Yet Another LuCI App for OpenWrt.">
+  <meta name="keywords" content="nightcodex7, Android apps, OpenWrt, LuCI, router manager, AdMob, Google Play Billing">
+  <meta name="robots" content="index, follow">
+  <meta property="og:title" content="nightcode.co.in — Projects & Apps by nightcodex7">
+  <meta property="og:description" content="Discover projects and Android apps by nightcodex7, including the featured Yet Another LuCI App for OpenWrt.">
+  <meta property="og:url" content="https://nightcode.co.in/">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="https://play-lh.googleusercontent.com/Rg--QY-uvtgIDspsjpdXg3IpzzlnApyEFl4UIc5y411rOdT7_73zmTaIJdbg_Q_hnLItHSQLO6C3EMO8smJp=w240-h480-rw">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="icon" id="site-favicon" href="assets/icons/favicon-dark.svg" type="image/svg+xml">
+  <script>
+  (function(){
+    var prefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+    var theme = prefersDark ? 'dark' : 'light';
+    document.documentElement.setAttribute('data-theme', theme);
+    var favicon = document.getElementById('site-favicon');
+    if (favicon) favicon.href = theme === 'dark' ? 'assets/icons/favicon-dark.svg' : 'assets/icons/favicon-light.svg';
+    var mq = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)');
+    if (mq && mq.addEventListener) mq.addEventListener('change', function(e){
+      var t = e.matches ? 'dark' : 'light';
+      document.documentElement.setAttribute('data-theme', t);
+      if (favicon) favicon.href = t === 'dark' ? 'assets/icons/favicon-dark.svg' : 'assets/icons/favicon-light.svg';
+    });
+  })();
+  </script>
   <link rel="stylesheet" href="styles.css">
   <link rel="canonical" href="https://nightcode.co.in/">
+  <script type="application/ld+json">
+  {"@context":"https://schema.org","@type":"WebSite","url":"https://nightcode.co.in/","name":"nightcode.co.in","description":"Projects and Android apps by nightcodex7, including Yet Another LuCI App for OpenWrt."}
+  </script>
 </head>
 
 <body>
 
   <nav class="nav">
     <div class="nav-inner">
-      <a href="index.html" class="nav-brand"><span class="prompt">tuhin@nightcode</span>:<span
+      <a href="index.html" class="nav-brand"><span class="prompt">nightcode</span>:<span
           class="cursor">~</span>$</a>
       <button class="nav-toggle" aria-label="Toggle menu" aria-expanded="false">menu</button>
       <ul class="nav-links" id="navLinks">
         <li><a href="index.html" class="active">~/home</a></li>
-        <li><a href="yet-another-luci-app-openwrt.html">~/yet-another-luci-app-openwrt</a></li>
+        <li><a href="app.html">~/app</a></li>
         <li><a href="contact.html">~/contact</a></li>
         <li><a href="privacy-policy.html">~/privacy</a></li>
         <li><a href="terms.html">~/terms</a></li>
@@ -62,13 +89,6 @@
           </svg>
           Medium
         </a>
-        <a href="https://tuhingarai.in" target="_blank" rel="noopener">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-            <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z" />
-            <polyline points="9 22 9 12 15 12 15 22" />
-          </svg>
-          tuhingarai.in
-        </a>
       </div>
     </section>
 
@@ -79,21 +99,6 @@
         <span class="meta">ls -la ~/projects</span>
       </div>
 
-      <div class="grid flagship" style="margin-bottom:18px;">
-        <a href="app.html" class="card flagship" style="text-decoration:none;color:inherit;">
-          <div class="flag-badge">// flagship</div>
-          <span class="status active"><span class="dot"></span>Active</span>
-          <h3>Yet Another LuCI for OpenWrt</h3>
-          <p>Manage OpenWrt routers from your Android phone — package management (OPKG/APK), firewall control
-            (iptables/nftables), network topology visualization, wireless client management, and multi-router support.
-          </p>
-          <div class="tags">
-            <span class="tag">Flutter</span><span class="tag">Android</span><span class="tag">OpenWrt</span><span
-              class="tag">ubus/RPCD</span>
-          </div>
-          <span class="cta">View app page →</span>
-        </a>
-      </div>
 
       <div class="grid">
         <article class="card">
@@ -114,9 +119,7 @@
             Prometheus/Grafana monitoring.</p>
           <div class="tags"><span class="tag">Kubernetes</span><span class="tag">Amazon EKS</span><span
               class="tag">AWS</span><span class="tag">Prometheus</span><span class="tag">Grafana</span></div>
-          <div class="card-links"><a
-              href="https://tuhingarai.in/assets/Zero_Downtime%20Application_Deployment_Kubernetes_AWS.pdf"
-              target="_blank" rel="noopener">pdf →</a></div>
+          <div class="card-links"><span>Documentation available on request</span></div>
         </article>
 
         <article class="card">
@@ -139,6 +142,29 @@
               href="https://medium.com/@nightcode_x/build-a-serverless-ec2-monitor-control-dashboard-with-aws-lambda-api-gateway-and-s3-f9dcad97943d"
               target="_blank" rel="noopener">medium →</a></div>
         </article>
+      </div>
+    </section>
+
+    <section>
+      <div class="section-head">
+        <span class="hash">#</span>
+        <h2>apps</h2>
+        <span class="meta">ls ~/apps</span>
+      </div>
+      <div class="apps-grid">
+        <a href="app.html" class="card app-card" style="text-decoration:none;color:inherit;">
+          <div class="app-preview">
+            <img src="https://play-lh.googleusercontent.com/Rg--QY-uvtgIDspsjpdXg3IpzzlnApyEFl4UIc5y411rOdT7_73zmTaIJdbg_Q_hnLItHSQLO6C3EMO8smJp=w240-h480-rw"
+              alt="Yet Another LuCI App icon">
+            <div class="app-preview-content">
+              <span class="status active"><span class="dot"></span>Featured App</span>
+              <h3>Yet Another LuCI App</h3>
+              <p>Android OpenWrt router manager with package control, firewall tools, topology, and multi-router support.</p>
+            </div>
+          </div>
+          <div class="tags"><span class="tag">Flutter</span><span class="tag">Android</span><span class="tag">OpenWrt</span><span class="tag">AdMob</span><span class="tag">Billing</span></div>
+          <span class="cta">Browse apps →</span>
+        </a>
       </div>
     </section>
 

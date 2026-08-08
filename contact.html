@@ -5,7 +5,26 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Contact — nightcode.co.in</title>
 <meta name="description" content="Contact Tuhin Garai for support, bug reports, or feedback regarding Yet Another LuCI App and nightcode.co.in.">
-<link rel="stylesheet" href="styles.css">
+<link rel="icon" type="image/svg+xml" href="https://raw.githubusercontent.com/nightcodex7/nightcodex7/main/assets/favicon.svg">
+<link rel="icon" type="image/svg+xml" sizes="32x32" href="https://raw.githubusercontent.com/nightcodex7/nightcodex7/main/assets/favicon-32x32.svg">
+<link rel="icon" type="image/svg+xml" sizes="16x16" href="https://raw.githubusercontent.com/nightcodex7/nightcodex7/main/assets/favicon-16x16.svg">
+  <link rel="icon" id="site-favicon" href="assets/icons/favicon-dark.svg" type="image/svg+xml">
+  <script>
+  (function(){
+    var prefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+    var theme = prefersDark ? 'dark' : 'light';
+    document.documentElement.setAttribute('data-theme', theme);
+    var favicon = document.getElementById('site-favicon');
+    if (favicon) favicon.href = theme === 'dark' ? 'assets/icons/favicon-dark.svg' : 'assets/icons/favicon-light.svg';
+    var mq = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)');
+    if (mq && mq.addEventListener) mq.addEventListener('change', function(e){
+      var t = e.matches ? 'dark' : 'light';
+      document.documentElement.setAttribute('data-theme', t);
+      if (favicon) favicon.href = t === 'dark' ? 'assets/icons/favicon-dark.svg' : 'assets/icons/favicon-light.svg';
+    });
+  })();
+  </script>
+  <link rel="stylesheet" href="styles.css">
 <link rel="canonical" href="https://nightcode.co.in/contact.html">
 </head>
 <body>

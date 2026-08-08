@@ -7,8 +7,24 @@
   <title>Yet Another LuCI for OpenWrt — Manage OpenWrt from Android</title>
   <meta name="description"
     content="Yet Another LuCI — manage OpenWrt routers from your Android phone. Package management (OPKG/APK), firewall control (iptables/nftables), network topology, wireless client management, multi-router support.">
+  <link rel="icon" id="site-favicon" href="assets/icons/favicon-dark.svg" type="image/svg+xml">
+  <script>
+  (function(){
+    var prefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+    var theme = prefersDark ? 'dark' : 'light';
+    document.documentElement.setAttribute('data-theme', theme);
+    var favicon = document.getElementById('site-favicon');
+    if (favicon) favicon.href = theme === 'dark' ? 'assets/icons/favicon-dark.svg' : 'assets/icons/favicon-light.svg';
+    var mq = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)');
+    if (mq && mq.addEventListener) mq.addEventListener('change', function(e){
+      var t = e.matches ? 'dark' : 'light';
+      document.documentElement.setAttribute('data-theme', t);
+      if (favicon) favicon.href = t === 'dark' ? 'assets/icons/favicon-dark.svg' : 'assets/icons/favicon-light.svg';
+    });
+  })();
+  </script>
   <link rel="stylesheet" href="styles.css">
-  <link rel="canonical" href="https://nightcode.co.in/app.html">
+  <link rel="canonical" href="https://nightcode.co.in/yet-another-luci-app-openwrt.html">
 </head>
 
 <body>
@@ -19,7 +35,8 @@
           class="cursor">~</span>$</a>
       <button class="nav-toggle" aria-label="Toggle menu" aria-expanded="false">menu</button>
       <ul class="nav-links" id="navLinks">
-        <!-- <li><a href="index.html">~/home</a></li> -->
+        <li><a href="index.html">~/home</a></li>
+        <li><a href="app.html">~/app</a></li>
         <li><a href="privacy-policy.html">~/privacy</a></li>
         <li><a href="terms.html">~/terms</a></li>
         <li><a href="contact.html">~/contact</a></li>
@@ -44,12 +61,12 @@
       <div class="downloads">
         <div class="dl play">
           <span class="label">Play Store</span>
-          <span class="title">Get it on Google Play</span>
-          <span class="sub">Official release comming soon....</span>
-          <!-- <a class="btn" href="https://play.google.com/store/apps/details?id=com.nightcode.luci" target="_blank" rel="noopener">
-          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M3.6 1.7 14 12 3.6 22.3c-.3-.2-.5-.6-.5-1V2.7c0-.4.2-.8.5-1zm12 10.3 2.7 2.7-9.5 5.5 6.8-8.2zM5.8 1.5l9.5 5.5-2.7 2.7-6.8-8.2zm12.9 7.6 2.9 1.7c.6.3.6 1.1 0 1.4l-2.9 1.7L15.6 12l3.1-2.9z"/></svg>
-          Google Play
-        </a> -->
+          <span class="title">Pre-release · testers only</span>
+          <span class="sub">Official release coming soon — available to closed testers for now.</span>
+          <a class="btn" href="https://play.google.com/store/apps/details?id=com.nightcode.luci" target="_blank" rel="noopener">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M3.6 1.7 14 12 3.6 22.3c-.3-.2-.5-.6-.5-1V2.7c0-.4.2-.8.5-1zm12 10.3 2.7 2.7-9.5 5.5 6.8-8.2zM5.8 1.5l9.5 5.5-2.7 2.7-6.8-8.2zm12.9 7.6 2.9 1.7c.6.3.6 1.1 0 1.4l-2.9 1.7L15.6 12l3.1-2.9z"/></svg>
+            Google Play Pre-release
+          </a>
         </div>
         <div class="dl gh">
           <span class="label">Open Source</span>
