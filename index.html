@@ -42,15 +42,16 @@
   <meta name="twitter:description" content="Discover projects and Android apps by nightcodex7, including the featured Yet Another LuCI App for OpenWrt.">
   <meta name="twitter:image" content="https://raw.githubusercontent.com/nightcodex7/yet-another-luci-app/main/assets/images/app_logo_router_clean.png">
 
-  <link rel="icon" id="site-favicon" href="assets/icons/app_logo_favicon_dark.png" type="image/png">
+  <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
+  <link rel="icon" type="image/svg+xml" sizes="16x16" href="assets/favicon-16x16.svg">
+  <link rel="icon" type="image/svg+xml" sizes="32x32" href="assets/favicon-32x32.svg">
+  <link rel="apple-touch-icon" href="assets/apple-touch-icon.svg">
   <script>
   (function(){
     var prefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
     var storedTheme = localStorage.getItem('theme');
     var theme = storedTheme || (prefersDark ? 'dark' : 'light');
     document.documentElement.setAttribute('data-theme', theme);
-    var favicon = document.getElementById('site-favicon');
-    if (favicon) favicon.href = theme === 'dark' ? 'assets/icons/app_logo_favicon_dark.png' : 'assets/icons/app_logo_favicon_light.png';
     document.addEventListener('DOMContentLoaded', function(){
       var toggle = document.getElementById('themeToggle');
       if (!toggle) return;
@@ -59,7 +60,6 @@
         var nextTheme = document.documentElement.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
         document.documentElement.setAttribute('data-theme', nextTheme);
         localStorage.setItem('theme', nextTheme);
-        if (favicon) favicon.href = nextTheme === 'dark' ? 'assets/icons/app_logo_favicon_dark.png' : 'assets/icons/app_logo_favicon_light.png';
         toggle.textContent = nextTheme === 'dark' ? '☾' : '☀';
       });
     });
@@ -68,7 +68,6 @@
       if (localStorage.getItem('theme')) return;
       var t = e.matches ? 'dark' : 'light';
       document.documentElement.setAttribute('data-theme', t);
-      if (favicon) favicon.href = t === 'dark' ? 'assets/icons/app_logo_favicon_dark.png' : 'assets/icons/app_logo_favicon_light.png';
       var toggle = document.getElementById('themeToggle');
       if (toggle) toggle.textContent = t === 'dark' ? '☾' : '☀';
     });
