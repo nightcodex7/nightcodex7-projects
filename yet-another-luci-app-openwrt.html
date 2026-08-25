@@ -209,24 +209,36 @@
       </div>
       <div id="shots-loading" class="shots-loading">fetching screenshots…</div>
       <div id="shots-fallback" class="shots-fallback" hidden>Screenshots unavailable right now. Visit the <a
-          href="https://github.com/nightcodex7/yet-another-luci-app/assets/screenshots" target="_blank"
+          href="https://github.com/nightcodex7/yet-another-luci-app/tree/main/assets/screenshots" target="_blank"
           rel="noopener">GitHub
           repository</a> to view them.</div>
       <div id="shots-grid" class="shots-grid" hidden></div>
     </section>
+
+    <!-- Lightbox Modal for Screenshot Preview -->
+    <div id="lightbox" class="lightbox-modal" aria-hidden="true" role="dialog" aria-label="Screenshot lightbox">
+      <button class="lightbox-close" id="lightboxClose" aria-label="Close screenshot preview">&times;</button>
+      <button class="lightbox-prev" id="lightboxPrev" aria-label="Previous screenshot">&#8249;</button>
+      <button class="lightbox-next" id="lightboxNext" aria-label="Next screenshot">&#8250;</button>
+      <div class="lightbox-content">
+        <img id="lightboxImg" class="lightbox-img" src="" alt="">
+        <div id="lightboxCaption" class="lightbox-caption"></div>
+      </div>
+    </div>
 
     <section>
       <div class="section-head"><span class="hash">#</span>
         <h2>features</h2><span class="meta">cat FEATURES.md</span>
       </div>
       <ul class="feature-list">
+        <li><b>Parental Controls</b>Scheduled domain filtering, website blocking, and device access rules.</li>
+        <li><b>Realtime Monitoring</b>Live traffic charts, CPU load meters, and memory utilization statistics.</li>
         <li><b>Package Management</b>Install, upgrade, and remove packages via OPKG and APK backends.</li>
         <li><b>Firewall Control</b>Full firewall rule management supporting both fw3 (iptables) and fw4 (nftables).</li>
         <li><b>Network Topology</b>Visualize your network layout for both DSA and swconfig switch configurations.</li>
         <li><b>Wireless Status</b>WPA3-SAE aware wireless status and connected-client management.</li>
-        <li><b>Multi-Router Support</b>Manage several OpenWrt routers from a single app</li>
-        <li><b>Secure Storage</b>Router credentials stored with hardware-backed encryption on-device — never
-          transmitted.</li>
+        <li><b>Multi-Router Support</b>Manage several OpenWrt routers seamlessly from a single app.</li>
+        <li><b>Secure Storage</b>Router credentials stored with hardware-backed encryption on-device — never transmitted.</li>
       </ul>
     </section>
 
@@ -280,7 +292,177 @@
       var loading = document.getElementById('shots-loading');
       var fallback = document.getElementById('shots-fallback');
       var grid = document.getElementById('shots-grid');
+      var lightbox = document.getElementById('lightbox');
+      var lightboxImg = document.getElementById('lightboxImg');
+      var lightboxCaption = document.getElementById('lightboxCaption');
+      var lightboxClose = document.getElementById('lightboxClose');
+      var lightboxPrev = document.getElementById('lightboxPrev');
+      var lightboxNext = document.getElementById('lightboxNext');
+      
       if (!loading || !fallback || !grid) return;
+
+      var currentImages = [];
+      var currentIndex = 0;
+
+      var FALLBACK_IMAGES = [
+        { name: '1_dashboard-light.jpeg', download_url: 'https://raw.githubusercontent.com/nightcodex7/yet-another-luci-app/main/assets/screenshots/1_dashboard-light.jpeg' },
+        { name: '2_dashboard-dark.jpeg', download_url: 'https://raw.githubusercontent.com/nightcodex7/yet-another-luci-app/main/assets/screenshots/2_dashboard-dark.jpeg' },
+        { name: '3_login_page.jpeg', download_url: 'https://raw.githubusercontent.com/nightcodex7/yet-another-luci-app/main/assets/screenshots/3_login_page.jpeg' },
+        { name: '4_dashboard-2.jpeg', download_url: 'https://raw.githubusercontent.com/nightcodex7/yet-another-luci-app/main/assets/screenshots/4_dashboard-2.jpeg' },
+        { name: '5_dashboard-3.jpeg', download_url: 'https://raw.githubusercontent.com/nightcodex7/yet-another-luci-app/main/assets/screenshots/5_dashboard-3.jpeg' },
+        { name: '6_clients.jpeg', download_url: 'https://raw.githubusercontent.com/nightcodex7/yet-another-luci-app/main/assets/screenshots/6_clients.jpeg' },
+        { name: '7_interfaces.jpeg', download_url: 'https://raw.githubusercontent.com/nightcodex7/yet-another-luci-app/main/assets/screenshots/7_interfaces.jpeg' },
+        { name: '8_interfaces-1.jpeg', download_url: 'https://raw.githubusercontent.com/nightcodex7/yet-another-luci-app/main/assets/screenshots/8_interfaces-1.jpeg' },
+        { name: '9_wireless.jpeg', download_url: 'https://raw.githubusercontent.com/nightcodex7/yet-another-luci-app/main/assets/screenshots/9_wireless.jpeg' },
+        { name: '10_system.jpeg', download_url: 'https://raw.githubusercontent.com/nightcodex7/yet-another-luci-app/main/assets/screenshots/10_system.jpeg' },
+        { name: '11_storage.jpeg', download_url: 'https://raw.githubusercontent.com/nightcodex7/yet-another-luci-app/main/assets/screenshots/11_storage.jpeg' },
+        { name: '12_realtime_charts.jpeg', download_url: 'https://raw.githubusercontent.com/nightcodex7/yet-another-luci-app/main/assets/screenshots/12_realtime_charts.jpeg' },
+        { name: '13_dhcp_dns.jpeg', download_url: 'https://raw.githubusercontent.com/nightcodex7/yet-another-luci-app/main/assets/screenshots/13_dhcp_dns.jpeg' },
+        { name: '14_firewall.jpeg', download_url: 'https://raw.githubusercontent.com/nightcodex7/yet-another-luci-app/main/assets/screenshots/14_firewall.jpeg' },
+        { name: '15_firewall-1.jpeg', download_url: 'https://raw.githubusercontent.com/nightcodex7/yet-another-luci-app/main/assets/screenshots/15_firewall-1.jpeg' },
+        { name: '16_services_system.jpeg', download_url: 'https://raw.githubusercontent.com/nightcodex7/yet-another-luci-app/main/assets/screenshots/16_services_system.jpeg' },
+        { name: '17_parental_controls.jpeg', download_url: 'https://raw.githubusercontent.com/nightcodex7/yet-another-luci-app/main/assets/screenshots/17_parental_controls.jpeg' },
+        { name: '18_parental_controls-1.jpeg', download_url: 'https://raw.githubusercontent.com/nightcodex7/yet-another-luci-app/main/assets/screenshots/18_parental_controls-1.jpeg' },
+        { name: '19_packagemanager.jpeg', download_url: 'https://raw.githubusercontent.com/nightcodex7/yet-another-luci-app/main/assets/screenshots/19_packagemanager.jpeg' },
+        { name: '20-settings-community.jpeg', download_url: 'https://raw.githubusercontent.com/nightcodex7/yet-another-luci-app/main/assets/screenshots/20-settings-community.jpeg' },
+        { name: '20-settings-playstore.jpeg', download_url: 'https://raw.githubusercontent.com/nightcodex7/yet-another-luci-app/main/assets/screenshots/20-settings-playstore.jpeg' },
+        { name: '21-more.jpeg', download_url: 'https://raw.githubusercontent.com/nightcodex7/yet-another-luci-app/main/assets/screenshots/21-more.jpeg' },
+        { name: '22-about.jpeg', download_url: 'https://raw.githubusercontent.com/nightcodex7/yet-another-luci-app/main/assets/screenshots/22-about.jpeg' }
+      ];
+
+      function formatTitle(filename) {
+        var map = {
+          '1_dashboard-light': 'Dashboard (Light Theme)',
+          '2_dashboard-dark': 'Dashboard (Dark Theme)',
+          '3_login_page': 'Login & Router Connection',
+          '4_dashboard-2': 'System Overview & CPU Load',
+          '5_dashboard-3': 'Network Interfaces & Memory',
+          '6_clients': 'Connected Wi-Fi & LAN Clients',
+          '7_interfaces': 'Network Interfaces List',
+          '8_interfaces-1': 'Interface Detail & Subnets',
+          '9_wireless': 'Wireless Radios & SSIDs',
+          '10_system': 'System Info & Firmware',
+          '11_storage': 'Storage & Mount Points',
+          '12_realtime_charts': 'Realtime Traffic & Bandwidth Charts',
+          '13_dhcp_dns': 'DHCP Leases & DNS Server',
+          '14_firewall': 'Firewall Zones & Rules',
+          '15_firewall-1': 'Port Forwarding & Rules',
+          '16_services_system': 'Running Services & Daemons',
+          '17_parental_controls': 'Parental Controls & Domain Filter',
+          '18_parental_controls-1': 'Parental Access Control Rules',
+          '19_packagemanager': 'OPKG & APK Package Manager',
+          '20-settings-community': 'App Settings (Community Edition)',
+          '20-settings-playstore': 'App Settings (Play Store)',
+          '21-more': 'Tools & Diagnostics',
+          '22-about': 'About & Open Source Credits'
+        };
+        var base = filename.replace(/\.[^.]+$/, '');
+        if (map[base]) return map[base];
+        return base.replace(/^\d+[_-]?/, '').replace(/[_-]/g, ' ').replace(/\b\w/g, function(l){ return l.toUpperCase(); });
+      }
+
+      function renderGrid(images) {
+        images.sort(function (a, b) {
+          var numA = parseInt((a.name.match(/^\d+/) || [0])[0], 10);
+          var numB = parseInt((b.name.match(/^\d+/) || [0])[0], 10);
+          if (numA !== numB) return numA - numB;
+          return a.name.localeCompare(b.name);
+        });
+
+        currentImages = images;
+        grid.innerHTML = '';
+
+        images.forEach(function (f, idx) {
+          var title = formatTitle(f.name);
+          var card = document.createElement('div');
+          card.className = 'shot-card';
+          card.setAttribute('role', 'button');
+          card.setAttribute('tabindex', '0');
+          card.setAttribute('aria-label', title);
+
+          var img = document.createElement('img');
+          img.src = f.download_url;
+          img.alt = title;
+          img.width = 220;
+          img.height = 476;
+          img.loading = 'lazy';
+          img.decoding = 'async';
+
+          var caption = document.createElement('div');
+          caption.className = 'shot-caption';
+          caption.textContent = title;
+
+          card.appendChild(img);
+          card.appendChild(caption);
+
+          card.addEventListener('click', function () { openLightbox(idx); });
+          card.addEventListener('keydown', function (e) {
+            if (e.key === 'Enter' || e.key === ' ') {
+              e.preventDefault();
+              openLightbox(idx);
+            }
+          });
+
+          grid.appendChild(card);
+        });
+
+        loading.hidden = true;
+        grid.hidden = false;
+      }
+
+      function openLightbox(index) {
+        if (!currentImages.length || !lightbox) return;
+        currentIndex = index;
+        updateLightbox();
+        lightbox.classList.add('active');
+        lightbox.setAttribute('aria-hidden', 'false');
+        document.body.style.overflow = 'hidden';
+      }
+
+      function closeLightbox() {
+        if (!lightbox) return;
+        lightbox.classList.remove('active');
+        lightbox.setAttribute('aria-hidden', 'true');
+        document.body.style.overflow = '';
+      }
+
+      function updateLightbox() {
+        if (!currentImages[currentIndex]) return;
+        var item = currentImages[currentIndex];
+        var title = formatTitle(item.name);
+        lightboxImg.src = item.download_url;
+        lightboxImg.alt = title;
+        lightboxCaption.textContent = title + ' (' + (currentIndex + 1) + '/' + currentImages.length + ')';
+      }
+
+      function nextLightbox() {
+        if (!currentImages.length) return;
+        currentIndex = (currentIndex + 1) % currentImages.length;
+        updateLightbox();
+      }
+
+      function prevLightbox() {
+        if (!currentImages.length) return;
+        currentIndex = (currentIndex - 1 + currentImages.length) % currentImages.length;
+        updateLightbox();
+      }
+
+      if (lightboxClose) lightboxClose.addEventListener('click', closeLightbox);
+      if (lightboxNext) lightboxNext.addEventListener('click', nextLightbox);
+      if (lightboxPrev) lightboxPrev.addEventListener('click', prevLightbox);
+
+      if (lightbox) {
+        lightbox.addEventListener('click', function (e) {
+          if (e.target === lightbox) closeLightbox();
+        });
+      }
+
+      document.addEventListener('keydown', function (e) {
+        if (!lightbox || !lightbox.classList.contains('active')) return;
+        if (e.key === 'Escape') closeLightbox();
+        else if (e.key === 'ArrowRight') nextLightbox();
+        else if (e.key === 'ArrowLeft') prevLightbox();
+      });
 
       fetch('https://api.github.com/repos/nightcodex7/yet-another-luci-app/contents/assets/screenshots', { headers: { 'Accept': 'application/vnd.github+json' } })
         .then(function (res) {
@@ -291,27 +473,12 @@
           var images = Array.isArray(files)
             ? files.filter(function (f) { return /\.(png|jpe?g|webp)$/i.test(f.name) && f.download_url; })
             : [];
-          if (!images.length) { showFallback(); return; }
-          images.forEach(function (f) {
-            var img = document.createElement('img');
-            img.src = f.download_url;
-            img.alt = f.name.replace(/\.[^.]+$/, '');
-            img.width = 220;
-            img.height = 440;
-            img.loading = 'lazy';
-            img.decoding = 'async';
-            grid.appendChild(img);
-          });
-          loading.hidden = true;
-          grid.hidden = false;
+          if (!images.length) { renderGrid(FALLBACK_IMAGES); return; }
+          renderGrid(images);
         })
-        .catch(function () { showFallback(); });
-
-      function showFallback() {
-        loading.hidden = true;
-        grid.hidden = true;
-        fallback.hidden = false;
-      }
+        .catch(function () {
+          renderGrid(FALLBACK_IMAGES);
+        });
     })();
   </script>
 </body>
