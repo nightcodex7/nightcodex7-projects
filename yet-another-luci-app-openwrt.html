@@ -27,7 +27,7 @@
   <link rel="dns-prefetch" href="https://api.github.com">
   <link rel="preconnect" href="https://raw.githubusercontent.com">
   <link rel="dns-prefetch" href="https://raw.githubusercontent.com">
-  <link rel="preload" as="image" href="https://play-lh.googleusercontent.com/Rg--QY-uvtgIDspsjpdXg3IpzzlnApyEFl4UIc5y411rOdT7_73zmTaIJdbg_Q_hnLItHSQLO6C3EMO8smJp=w240-h480-rw">
+  <link rel="preload" as="image" href="assets/images/app_logo_router_clean.png">
 
   <!-- Open Graph / Facebook -->
   <meta property="og:site_name" content="nightcode.co.in">
@@ -36,7 +36,7 @@
   <meta property="og:description" content="Native Android client for OpenWrt router administration — package management, firewall control, topology, and multi-router support over ubus/RPCD.">
   <meta property="og:url" content="https://nightcode.co.in/yet-another-luci-app-openwrt.html">
   <meta property="og:type" content="website">
-  <meta property="og:image" content="https://play-lh.googleusercontent.com/Rg--QY-uvtgIDspsjpdXg3IpzzlnApyEFl4UIc5y411rOdT7_73zmTaIJdbg_Q_hnLItHSQLO6C3EMO8smJp=w240-h480-rw">
+  <meta property="og:image" content="https://raw.githubusercontent.com/nightcodex7/yet-another-luci-app/main/assets/images/app_logo_router_clean.png">
 
   <!-- Twitter Card -->
   <meta name="twitter:card" content="summary_large_image">
@@ -44,21 +44,37 @@
   <meta name="twitter:creator" content="@nightcode_x">
   <meta name="twitter:title" content="Yet Another LuCI for OpenWrt — Manage OpenWrt from Android">
   <meta name="twitter:description" content="Native Android client for OpenWrt router administration — package management, firewall control, topology, and multi-router support over ubus/RPCD.">
-  <meta name="twitter:image" content="https://play-lh.googleusercontent.com/Rg--QY-uvtgIDspsjpdXg3IpzzlnApyEFl4UIc5y411rOdT7_73zmTaIJdbg_Q_hnLItHSQLO6C3EMO8smJp=w240-h480-rw">
+  <meta name="twitter:image" content="https://raw.githubusercontent.com/nightcodex7/yet-another-luci-app/main/assets/images/app_logo_router_clean.png">
 
-  <link rel="icon" id="site-favicon" href="assets/icons/favicon-dark.svg" type="image/svg+xml">
+  <link rel="icon" id="site-favicon" href="assets/icons/app_logo_favicon_dark.png" type="image/png">
   <script>
   (function(){
     var prefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
-    var theme = prefersDark ? 'dark' : 'light';
+    var storedTheme = localStorage.getItem('theme');
+    var theme = storedTheme || (prefersDark ? 'dark' : 'light');
     document.documentElement.setAttribute('data-theme', theme);
     var favicon = document.getElementById('site-favicon');
-    if (favicon) favicon.href = theme === 'dark' ? 'assets/icons/favicon-dark.svg' : 'assets/icons/favicon-light.svg';
+    if (favicon) favicon.href = theme === 'dark' ? 'assets/icons/app_logo_favicon_dark.png' : 'assets/icons/app_logo_favicon_light.png';
+    document.addEventListener('DOMContentLoaded', function(){
+      var toggle = document.getElementById('themeToggle');
+      if (!toggle) return;
+      toggle.textContent = theme === 'dark' ? '☾' : '☀';
+      toggle.addEventListener('click', function(){
+        var nextTheme = document.documentElement.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
+        document.documentElement.setAttribute('data-theme', nextTheme);
+        localStorage.setItem('theme', nextTheme);
+        if (favicon) favicon.href = nextTheme === 'dark' ? 'assets/icons/app_logo_favicon_dark.png' : 'assets/icons/app_logo_favicon_light.png';
+        toggle.textContent = nextTheme === 'dark' ? '☾' : '☀';
+      });
+    });
     var mq = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)');
     if (mq && mq.addEventListener) mq.addEventListener('change', function(e){
+      if (localStorage.getItem('theme')) return;
       var t = e.matches ? 'dark' : 'light';
       document.documentElement.setAttribute('data-theme', t);
-      if (favicon) favicon.href = t === 'dark' ? 'assets/icons/favicon-dark.svg' : 'assets/icons/favicon-light.svg';
+      if (favicon) favicon.href = t === 'dark' ? 'assets/icons/app_logo_favicon_dark.png' : 'assets/icons/app_logo_favicon_light.png';
+      var toggle = document.getElementById('themeToggle');
+      if (toggle) toggle.textContent = t === 'dark' ? '☾' : '☀';
     });
   })();
   </script>
@@ -72,7 +88,7 @@
       "operatingSystem": "Android",
       "applicationCategory": "UtilitiesApplication",
       "url": "https://nightcode.co.in/yet-another-luci-app-openwrt.html",
-      "image": "https://play-lh.googleusercontent.com/Rg--QY-uvtgIDspsjpdXg3IpzzlnApyEFl4UIc5y411rOdT7_73zmTaIJdbg_Q_hnLItHSQLO6C3EMO8smJp=w240-h480-rw",
+      "image": "https://raw.githubusercontent.com/nightcodex7/yet-another-luci-app/main/assets/images/app_logo_router_clean.png",
       "description": "Manage OpenWrt routers from your Android phone with package control, firewall tools, network topology, and multi-router support.",
       "offers": {
         "@type": "Offer",
@@ -121,8 +137,9 @@
 
   <nav class="nav">
     <div class="nav-inner">
-      <a href="index.html" class="nav-brand"><span class="prompt">user@nightcode-technologies</span>:<span
+      <a href="index.html" class="nav-brand"><span class="prompt">nightcodex7</span>:<span
           class="cursor">~</span>$</a>
+      <button class="theme-toggle" id="themeToggle" type="button" aria-label="Toggle dark and light mode" title="Toggle theme">☀</button>
       <button class="nav-toggle" aria-label="Toggle menu" aria-expanded="false">menu</button>
       <ul class="nav-links" id="navLinks">
         <li><a href="index.html">~/home</a></li>
@@ -136,9 +153,21 @@
 
   <main>
     <section class="app-hero">
-      <div class="eyebrow">// app</div>
-      <h1>Yet Another LuCI App<span style="color:var(--accent);">for OpenWrt</span></h1>
-      <p class="tag">Manage OpenWrt routers from your Android phone.</p>
+      <div class="app-hero-header">
+        <div class="app-logo-badge" title="Yet Another LuCI App">
+          <img src="assets/images/app_logo_router_clean.png"
+               alt="Yet Another LuCI App Logo"
+               class="app-logo-img"
+               width="140"
+               height="97"
+               decoding="async">
+        </div>
+        <div class="app-hero-info">
+          <div class="eyebrow">// app</div>
+          <h1>Yet Another LuCI App <span class="accent-sub">for OpenWrt</span></h1>
+          <p class="tag">Manage OpenWrt routers from your Android phone.</p>
+        </div>
+      </div>
       <p class="desc">A native Android client for OpenWrt router administration — package management (OPKG/APK),
         firewall control (iptables &amp; nftables), network topology visualization, wireless client management, and
         multi-router support, all over ubus/RPCD.</p>
