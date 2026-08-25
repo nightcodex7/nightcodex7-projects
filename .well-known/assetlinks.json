@@ -1,11 +1,16 @@
 [
   {
-    "relation": ["delegate_permission/common.handle_all_urls"],
+    "relation": [
+      "delegate_permission/common.handle_all_urls",
+      "delegate_permission/common.get_login_creds"
+    ],
     "target": {
       "namespace": "android_app",
       "package_name": "com.nightcode.luci",
       "sha256_cert_fingerprints": [
-        "1C:46:A2:D9:19:F1:BB:24:C0:4E:0D:E6:47:95:9D:31:2A:9F:6A:A4:00:FF:88:63:F3:FF:F6:3E:90:4B:22:3C"
+        "1C:46:A2:D9:19:F1:BB:24:C0:4E:0D:E6:47:95:9D:31:2A:9F:6A:A4:00:FF:88:63:F3:FF:F6:3E:90:4B:22:3C",
+        "FC:B6:5C:C9:D3:4A:42:68:3E:AD:46:E5:5F:74:F9:FE:99:FE:21:08:AD:4A:E6:1F:B8:BB:87:4D:7F:0F:81:12",
+        "B7:95:AE:79:76:6F:2B:0B:39:FA:67:00:A9:E2:B7:83:06:D7:7C:2B:83:F0:7D:1B:85:46:25:5E:CB:48:4F:DB"
       ]
     }
   }
