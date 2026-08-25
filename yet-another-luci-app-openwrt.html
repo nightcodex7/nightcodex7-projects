@@ -14,6 +14,38 @@
   <title>Yet Another LuCI for OpenWrt — Manage OpenWrt from Android</title>
   <meta name="description"
     content="Yet Another LuCI — manage OpenWrt routers from your Android phone. Package management (OPKG/APK), firewall control (iptables/nftables), network topology, wireless client management, multi-router support.">
+  <meta name="keywords" content="Yet Another LuCI, OpenWrt, Android, router manager, ubus, RPCD, OPKG, APK, iptables, nftables, WPA3, Flutter, nightcodex7">
+  <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
+  <link rel="canonical" href="https://nightcode.co.in/yet-another-luci-app-openwrt.html">
+
+  <!-- Performance & Resource Hints -->
+  <link rel="preconnect" href="https://play-lh.googleusercontent.com" crossorigin>
+  <link rel="dns-prefetch" href="https://play-lh.googleusercontent.com">
+  <link rel="preconnect" href="https://www.googletagmanager.com">
+  <link rel="dns-prefetch" href="https://www.googletagmanager.com">
+  <link rel="preconnect" href="https://api.github.com">
+  <link rel="dns-prefetch" href="https://api.github.com">
+  <link rel="preconnect" href="https://raw.githubusercontent.com">
+  <link rel="dns-prefetch" href="https://raw.githubusercontent.com">
+  <link rel="preload" as="image" href="https://play-lh.googleusercontent.com/Rg--QY-uvtgIDspsjpdXg3IpzzlnApyEFl4UIc5y411rOdT7_73zmTaIJdbg_Q_hnLItHSQLO6C3EMO8smJp=w240-h480-rw">
+
+  <!-- Open Graph / Facebook -->
+  <meta property="og:site_name" content="nightcode.co.in">
+  <meta property="og:locale" content="en_US">
+  <meta property="og:title" content="Yet Another LuCI for OpenWrt — Manage OpenWrt from Android">
+  <meta property="og:description" content="Native Android client for OpenWrt router administration — package management, firewall control, topology, and multi-router support over ubus/RPCD.">
+  <meta property="og:url" content="https://nightcode.co.in/yet-another-luci-app-openwrt.html">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="https://play-lh.googleusercontent.com/Rg--QY-uvtgIDspsjpdXg3IpzzlnApyEFl4UIc5y411rOdT7_73zmTaIJdbg_Q_hnLItHSQLO6C3EMO8smJp=w240-h480-rw">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:site" content="@nightcode_x">
+  <meta name="twitter:creator" content="@nightcode_x">
+  <meta name="twitter:title" content="Yet Another LuCI for OpenWrt — Manage OpenWrt from Android">
+  <meta name="twitter:description" content="Native Android client for OpenWrt router administration — package management, firewall control, topology, and multi-router support over ubus/RPCD.">
+  <meta name="twitter:image" content="https://play-lh.googleusercontent.com/Rg--QY-uvtgIDspsjpdXg3IpzzlnApyEFl4UIc5y411rOdT7_73zmTaIJdbg_Q_hnLItHSQLO6C3EMO8smJp=w240-h480-rw">
+
   <link rel="icon" id="site-favicon" href="assets/icons/favicon-dark.svg" type="image/svg+xml">
   <script>
   (function(){
@@ -31,7 +63,54 @@
   })();
   </script>
   <link rel="stylesheet" href="styles.css">
-  <link rel="canonical" href="https://nightcode.co.in/yet-another-luci-app-openwrt.html">
+  <script type="application/ld+json">
+  [
+    {
+      "@context": "https://schema.org",
+      "@type": "SoftwareApplication",
+      "name": "Yet Another LuCI App",
+      "operatingSystem": "Android",
+      "applicationCategory": "UtilitiesApplication",
+      "url": "https://nightcode.co.in/yet-another-luci-app-openwrt.html",
+      "image": "https://play-lh.googleusercontent.com/Rg--QY-uvtgIDspsjpdXg3IpzzlnApyEFl4UIc5y411rOdT7_73zmTaIJdbg_Q_hnLItHSQLO6C3EMO8smJp=w240-h480-rw",
+      "description": "Manage OpenWrt routers from your Android phone with package control, firewall tools, network topology, and multi-router support.",
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "USD"
+      },
+      "author": {
+        "@type": "Person",
+        "name": "Tuhin Garai",
+        "alternateName": "nightcodex7"
+      }
+    },
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://nightcode.co.in/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Apps",
+          "item": "https://nightcode.co.in/app.html"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "Yet Another LuCI App",
+          "item": "https://nightcode.co.in/yet-another-luci-app-openwrt.html"
+        }
+      ]
+    }
+  ]
+  </script>
 </head>
 
 <body>
@@ -188,7 +267,10 @@
             var img = document.createElement('img');
             img.src = f.download_url;
             img.alt = f.name.replace(/\.[^.]+$/, '');
+            img.width = 220;
+            img.height = 440;
             img.loading = 'lazy';
+            img.decoding = 'async';
             grid.appendChild(img);
           });
           loading.hidden = true;

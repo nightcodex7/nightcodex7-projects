@@ -558,6 +558,7 @@ section:last-child { margin-bottom: 0; }
 .shots-grid img {
   width: 100%;
   height: auto;
+  aspect-ratio: 9 / 19.5;
   border-radius: 10px;
   border: 1px solid var(--border);
   background: var(--bg-elev);
