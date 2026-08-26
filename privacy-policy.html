@@ -108,68 +108,73 @@
 <main>
   <article class="prose">
     <h1>Privacy Policy</h1>
-    <span class="updated">nightcode.co.in apps · Last updated: August 8, 2026</span>
+    <span class="updated">nightcode.co.in apps · Last updated: August 26, 2026</span>
 
-    <p>This Privacy Policy applies to nightcode.co.in and the Android applications published by nightcodex7, including Yet Another LuCI App for OpenWrt. It explains how data is collected, used, and safeguarded in the apps and on this website, including third-party SDKs such as Google AdMob and Google Play Billing.</p>
+    <p>This Privacy Policy applies to nightcode.co.in and the Android applications published by nightcodex7, including Yet Another LuCI App for OpenWrt. It explains how data is collected, processed, and safeguarded across both our open-source Community Edition and official distribution builds, including optional third-party SDKs such as Google Play Billing and Google AdMob.</p>
 
-    <h2>1. Information We Collect</h2>
+    <h2>1. Information We Collect &amp; Process</h2>
 
-    <h3>a. User Credentials &amp; Local Router Data</h3>
+    <h3>a. Local Router Credentials &amp; Local Network Data</h3>
     <ul>
-      <li>Apps such as Yet Another LuCI App require your router's IP address, username, and password to connect to your device.</li>
-      <li>These credentials are stored securely on your device using industry-standard hardware-backed encryption (for example, via <code>flutter_secure_storage</code>).</li>
-      <li>We do <strong>not</strong> collect, transmit, or store your router credentials or router configuration data on external servers.</li>
+      <li>Apps such as Yet Another LuCI App require your router's IP address, port, username, and password to establish direct HTTP/HTTPS and JSON-RPC connections with your device.</li>
+      <li>These credentials are encrypted and stored locally on your device using hardware-backed secure storage (via <code>flutter_secure_storage</code> / KeyStore).</li>
+      <li>We do <strong>not</strong> collect, transmit, upload, or store your router credentials, IP addresses, network layout, or router configurations on any external server or developer database.</li>
     </ul>
 
-    <h3>b. Third-Party Ad Services (Google AdMob &amp; UMP)</h3>
+    <h3>b. Local Network Access Permission</h3>
     <ul>
-      <li>For free-tier users, the apps may display advertisements powered by <strong>Google AdMob</strong>.</li>
-      <li><strong>Data Collected:</strong> Google AdMob may automatically collect device identifiers (such as Android Advertising ID), IP address, coarse location, app usage, and interaction data for ad serving, personalization, and analytics.</li>
-      <li><strong>GDPR &amp; UK User Consent:</strong> When required by regional privacy laws, the apps use the <strong>Google User Messaging Platform (UMP) SDK</strong> to request user consent before ads are personalized or served. Users can manage or revoke consent preferences where applicable.</li>
-      <li>Some future apps may be ad-free. This policy is written to remain flexible for both ad-supported and ads-free releases.</li>
+      <li>To discover, monitor, and manage OpenWrt routers on modern Android versions (Android 15+ / API 35+ / API 37), the App requests the <code>ACCESS_LOCAL_NETWORK</code> runtime permission.</li>
+      <li>This permission is used strictly to establish socket connections to local gateway IP addresses (such as <code>192.168.1.1</code> or <code>10.0.0.1</code>).</li>
     </ul>
 
-    <h3>c. In-App Purchases &amp; Subscriptions (Google Play Billing)</h3>
+    <h2>2. App Distribution Flavors &amp; Third-Party Services</h2>
+
+    <h3>a. Community Edition (GitHub Releases / FOSS)</h3>
     <ul>
-      <li>The apps may offer optional paid upgrades or subscriptions to remove ads, unlock premium features, or expand router support.</li>
-      <li>All payment transactions and billing are handled by the <strong>Google Play Store</strong> and associated Google Play Billing services.</li>
-      <li><strong>Data Handled:</strong> The apps may receive purchase receipts, subscription entitlement state, and purchase validation details from Google Play. The apps do <strong>not</strong> collect or store payment card numbers, bank account information, or billing addresses.</li>
+      <li><strong>100% Free &amp; Ad-Free:</strong> Contains zero advertisements, does not collect Advertising IDs (<code>AD_ID</code>), and does not integrate third-party ad networks.</li>
+      <li><strong>No In-App Purchases:</strong> Fully open-source under the Apache License 2.0 with unlimited router profiles.</li>
+      <li><strong>Zero Telemetry or Analytics:</strong> Contains no background tracking, crash telemetry, or third-party analytics SDKs.</li>
     </ul>
 
-    <h2>2. How We Use Your Information</h2>
+    <h3>b. Official Release / Play Store Edition</h3>
     <ul>
-      <li><strong>Router Management:</strong> Authenticating directly with your router to retrieve and display status, interfaces, firewall rules, and connected clients.</li>
-      <li><strong>Advertising:</strong> Displaying relevant banner ads to free-tier users via AdMob.</li>
-      <li><strong>Entitlement Enforcement:</strong> Verifying active subscription or lifetime purchases to remove ads and unlock multi-router features.</li>
+      <li><strong>Support the Developer &amp; In-App Billing (Google Play Billing):</strong> The App may offer optional voluntary "Support the Developer" contributions, tip jars, or feature tier upgrades. All transactions are processed securely by the <strong>Google Play Store</strong>. The App does <strong>not</strong> collect or store credit card details or billing addresses.</li>
+      <li><strong>Optional Ad Services &amp; Consent (Google AdMob &amp; UMP):</strong> If optional ad-supported tiers are enabled in official builds, ads are powered by <strong>Google AdMob</strong>. Google AdMob may process non-sensitive device identifiers (such as Advertising ID), coarse location, and usage metrics for ad serving and fraud detection. In regions subject to regional privacy laws (e.g. EU/EEA, UK), the <strong>Google User Messaging Platform (UMP) SDK</strong> prompts for explicit user consent before serving ads. Users can manage or revoke consent at any time.</li>
     </ul>
 
-    <h2>3. Data Sharing and Disclosure</h2>
+    <h2>3. How We Use Your Information</h2>
     <ul>
-      <li><strong>Router Data:</strong> Zero router credentials or router configuration data are shared with third parties.</li>
-      <li><strong>Ad &amp; Billing Partners:</strong> Advertising IDs, purchase receipts, and related validation data may be shared with Google AdMob and Google Play Services in accordance with Google's privacy policy: <a href="https://policies.google.com/privacy" target="_blank" rel="noopener">policies.google.com/privacy</a>.</li>
+      <li><strong>Local Router Management:</strong> Direct communication with your OpenWrt router to display status, interfaces, firewall rules, and connected clients.</li>
+      <li><strong>Voluntary Contributions &amp; Entitlements:</strong> Verifying active purchase receipts via Google Play Services to unlock developer support tiers.</li>
+      <li><strong>Ad Serving &amp; Fraud Prevention:</strong> Serving compliant banner ads to ad-supported tier users via Google AdMob where applicable.</li>
     </ul>
 
-    <h2>4. Security</h2>
+    <h2>4. Data Sharing and Disclosure</h2>
     <ul>
-      <li>Router credentials remain stored locally on your device.</li>
-      <li>The App supports HTTPS connections and custom port configurations for secure communication with your router.</li>
+      <li><strong>Router Data:</strong> Zero router credentials or router configuration data are ever shared with third parties.</li>
+      <li><strong>Billing &amp; Ad Services:</strong> Non-sensitive purchase receipts and advertising IDs are processed exclusively through Google Play Services and Google AdMob in compliance with <a href="https://policies.google.com/privacy" target="_blank" rel="noopener">Google's Privacy Policy</a>.</li>
     </ul>
 
-    <h2>5. Children's Privacy</h2>
+    <h2>5. Security</h2>
     <ul>
-      <li>The App is not intended for use by children under the age of 13.</li>
-      <li>We do not knowingly collect personal information from children.</li>
+      <li>Router credentials and session tokens remain stored securely on your local device.</li>
+      <li>The App supports HTTPS connections, custom ports, and SSL verification options for secure local network and VPN traffic.</li>
+    </ul>
+
+    <h2>6. Children's Privacy</h2>
+    <ul>
+      <li>The App is not directed to children under the age of 13. We do not knowingly collect personal information from children.</li>
     </ul>
 
     <div class="note">
-      <strong>Play Console Data Safety Notice:</strong> The Google Play Console “Data Safety” declarations should match this policy and accurately disclose that the apps may collect Device or other IDs (such as Advertising ID) through Google AdMob and Financial Info / Purchase History through Google Play Billing. This privacy policy page is publicly accessible, active, and not a PDF.
+      <strong>Play Console Data Safety Notice:</strong> The Google Play Console &ldquo;Data Safety&rdquo; declarations accurately reflect that the App operates local-first for all network management tasks, while disclosing optional Device IDs (Google AdMob) and Financial / Purchase History (Google Play Billing) where active in Play Store distribution builds. This privacy policy page is publicly accessible, active, and available at a permanent HTTPS URL.
     </div>
 
-    <h2>6. Contact Us</h2>
+    <h2>7. Contact Us</h2>
     <p>If you have any questions or concerns about this Privacy Policy, please reach out:</p>
     <ul>
       <li><a href="https://github.com/nightcodex7/yet-another-luci-app/issues" target="_blank" rel="noopener">github.com/nightcodex7/yet-another-luci-app/issues</a></li>
-      <li><a href="mailto:tuhingarai.dev+support@gmail.com">tuhingarai.dev+support@gmail.com</a></li>
+      <li><a href="mailto:tuhingarai.dev+privacy@gmail.com">tuhingarai.dev+privacy@gmail.com</a></li>
     </ul>
 
     <a href="app.html" class="back-link">
