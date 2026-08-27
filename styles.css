@@ -649,6 +649,18 @@ section:last-child { margin-bottom: 0; }
   cursor: pointer;
   transition: transform 0.2s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.2s ease, box-shadow 0.2s ease;
 }
+.shot-card--wide {
+  grid-column: span 2;
+}
+.shot-card--full {
+  grid-column: 1 / -1;
+}
+@media (max-width: 650px) {
+  .shot-card--wide,
+  .shot-card--full {
+    grid-column: span 1;
+  }
+}
 .shot-card:hover {
   transform: translateY(-4px) scale(1.01);
   border-color: var(--accent);

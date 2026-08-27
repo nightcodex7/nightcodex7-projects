@@ -6,17 +6,21 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
   <!-- Google Tag Manager -->
-  <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-  new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-  j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-  'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-  })(window,document,'script','dataLayer','GTM-NWBNMKMR');</script>
+  <script>(function (w, d, s, l, i) {
+      w[l] = w[l] || []; w[l].push({
+        'gtm.start':
+          new Date().getTime(), event: 'gtm.js'
+      }); var f = d.getElementsByTagName(s)[0],
+        j = d.createElement(s), dl = l != 'dataLayer' ? '&l=' + l : ''; j.async = true; j.src =
+          'https://www.googletagmanager.com/gtm.js?id=' + i + dl; f.parentNode.insertBefore(j, f);
+    })(window, document, 'script', 'dataLayer', 'GTM-NWBNMKMR');</script>
   <!-- End Google Tag Manager -->
 
   <title>Yet Another LuCI for OpenWrt — Manage OpenWrt from Android</title>
   <meta name="description"
     content="Native Android client for OpenWrt router administration — package management, firewall control, topology, and multi-router support over ubus/RPCD.">
-  <meta name="keywords" content="OpenWrt, LuCI, Android app, ubus, RPCD, router management, firewall, OPKG, APK, Tuhin Garai, nightcodex7">
+  <meta name="keywords"
+    content="OpenWrt, LuCI, Android app, ubus, RPCD, router management, firewall, OPKG, APK, Tuhin Garai, nightcodex7">
   <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
   <link rel="canonical" href="https://nightcode.co.in/yet-another-luci-app-openwrt.html">
 
@@ -33,50 +37,54 @@
   <meta property="og:site_name" content="nightcode.co.in">
   <meta property="og:locale" content="en_US">
   <meta property="og:title" content="Yet Another LuCI for OpenWrt — Manage OpenWrt from Android">
-  <meta property="og:description" content="Native Android client for OpenWrt router administration — package management, firewall control, topology, and multi-router support over ubus/RPCD.">
+  <meta property="og:description"
+    content="Native Android client for OpenWrt router administration — package management, firewall control, topology, and multi-router support over ubus/RPCD.">
   <meta property="og:url" content="https://nightcode.co.in/yet-another-luci-app-openwrt.html">
   <meta property="og:type" content="website">
-  <meta property="og:image" content="https://raw.githubusercontent.com/nightcodex7/yet-another-luci-app/main/assets/images/app_logo_router_clean.png">
+  <meta property="og:image"
+    content="https://raw.githubusercontent.com/nightcodex7/yet-another-luci-app/main/assets/images/app_logo_router_clean.png">
 
   <!-- Twitter Card -->
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:site" content="@nightcode_x">
   <meta name="twitter:creator" content="@nightcode_x">
   <meta name="twitter:title" content="Yet Another LuCI for OpenWrt — Manage OpenWrt from Android">
-  <meta name="twitter:description" content="Native Android client for OpenWrt router administration — package management, firewall control, topology, and multi-router support over ubus/RPCD.">
-  <meta name="twitter:image" content="https://raw.githubusercontent.com/nightcodex7/yet-another-luci-app/main/assets/images/app_logo_router_clean.png">
+  <meta name="twitter:description"
+    content="Native Android client for OpenWrt router administration — package management, firewall control, topology, and multi-router support over ubus/RPCD.">
+  <meta name="twitter:image"
+    content="https://raw.githubusercontent.com/nightcodex7/yet-another-luci-app/main/assets/images/app_logo_router_clean.png">
 
   <link rel="icon" id="site-favicon" href="assets/icons/app_logo_favicon_dark.png" type="image/png">
   <script>
-  (function(){
-    var prefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
-    var storedTheme = localStorage.getItem('theme');
-    var theme = storedTheme || (prefersDark ? 'dark' : 'light');
-    document.documentElement.setAttribute('data-theme', theme);
-    var favicon = document.getElementById('site-favicon');
-    if (favicon) favicon.href = theme === 'dark' ? 'assets/icons/app_logo_favicon_dark.png' : 'assets/icons/app_logo_favicon_light.png';
-    document.addEventListener('DOMContentLoaded', function(){
-      var toggle = document.getElementById('themeToggle');
-      if (!toggle) return;
-      toggle.textContent = theme === 'dark' ? '☾' : '☀';
-      toggle.addEventListener('click', function(){
-        var nextTheme = document.documentElement.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
-        document.documentElement.setAttribute('data-theme', nextTheme);
-        localStorage.setItem('theme', nextTheme);
-        if (favicon) favicon.href = nextTheme === 'dark' ? 'assets/icons/app_logo_favicon_dark.png' : 'assets/icons/app_logo_favicon_light.png';
-        toggle.textContent = nextTheme === 'dark' ? '☾' : '☀';
+    (function () {
+      var prefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+      var storedTheme = localStorage.getItem('theme');
+      var theme = storedTheme || (prefersDark ? 'dark' : 'light');
+      document.documentElement.setAttribute('data-theme', theme);
+      var favicon = document.getElementById('site-favicon');
+      if (favicon) favicon.href = theme === 'dark' ? 'assets/icons/app_logo_favicon_dark.png' : 'assets/icons/app_logo_favicon_light.png';
+      document.addEventListener('DOMContentLoaded', function () {
+        var toggle = document.getElementById('themeToggle');
+        if (!toggle) return;
+        toggle.textContent = theme === 'dark' ? '☾' : '☀';
+        toggle.addEventListener('click', function () {
+          var nextTheme = document.documentElement.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
+          document.documentElement.setAttribute('data-theme', nextTheme);
+          localStorage.setItem('theme', nextTheme);
+          if (favicon) favicon.href = nextTheme === 'dark' ? 'assets/icons/app_logo_favicon_dark.png' : 'assets/icons/app_logo_favicon_light.png';
+          toggle.textContent = nextTheme === 'dark' ? '☾' : '☀';
+        });
       });
-    });
-    var mq = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)');
-    if (mq && mq.addEventListener) mq.addEventListener('change', function(e){
-      if (localStorage.getItem('theme')) return;
-      var t = e.matches ? 'dark' : 'light';
-      document.documentElement.setAttribute('data-theme', t);
-      if (favicon) favicon.href = t === 'dark' ? 'assets/icons/app_logo_favicon_dark.png' : 'assets/icons/app_logo_favicon_light.png';
-      var toggle = document.getElementById('themeToggle');
-      if (toggle) toggle.textContent = t === 'dark' ? '☾' : '☀';
-    });
-  })();
+      var mq = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)');
+      if (mq && mq.addEventListener) mq.addEventListener('change', function (e) {
+        if (localStorage.getItem('theme')) return;
+        var t = e.matches ? 'dark' : 'light';
+        document.documentElement.setAttribute('data-theme', t);
+        if (favicon) favicon.href = t === 'dark' ? 'assets/icons/app_logo_favicon_dark.png' : 'assets/icons/app_logo_favicon_light.png';
+        var toggle = document.getElementById('themeToggle');
+        if (toggle) toggle.textContent = t === 'dark' ? '☾' : '☀';
+      });
+    })();
   </script>
   <link rel="stylesheet" href="styles.css">
   <script type="application/ld+json">
@@ -131,15 +139,15 @@
 
 <body>
   <!-- Google Tag Manager (noscript) -->
-  <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-NWBNMKMR"
-  height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+  <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-NWBNMKMR" height="0" width="0"
+      style="display:none;visibility:hidden"></iframe></noscript>
   <!-- End Google Tag Manager (noscript) -->
 
   <nav class="nav">
     <div class="nav-inner">
-      <a href="index.html" class="nav-brand"><span class="prompt">nightcodex7</span>:<span
-          class="cursor">~</span>$</a>
-      <button class="theme-toggle" id="themeToggle" type="button" aria-label="Toggle dark and light mode" title="Toggle theme">☀</button>
+      <a href="index.html" class="nav-brand"><span class="prompt">nightcodex7</span>:<span class="cursor">~</span>$</a>
+      <button class="theme-toggle" id="themeToggle" type="button" aria-label="Toggle dark and light mode"
+        title="Toggle theme">☀</button>
       <button class="nav-toggle" aria-label="Toggle menu" aria-expanded="false">menu</button>
       <ul class="nav-links" id="navLinks">
         <li><a href="index.html">~/home</a></li>
@@ -155,12 +163,8 @@
     <section class="app-hero">
       <div class="app-hero-header">
         <div class="app-logo-badge" title="Yet Another LuCI App">
-          <img src="assets/images/app_logo_router_clean.png"
-               alt="Yet Another LuCI App Logo"
-               class="app-logo-img"
-               width="140"
-               height="97"
-               decoding="async">
+          <img src="assets/images/app_logo_router_clean.png" alt="Yet Another LuCI App Logo" class="app-logo-img"
+            width="140" height="97" decoding="async">
         </div>
         <div class="app-hero-info">
           <div class="eyebrow">// app</div>
@@ -182,8 +186,12 @@
           <span class="label">Play Store</span>
           <span class="title">Pre-release · testers only</span>
           <span class="sub">Official release coming soon — available to closed testers for now.</span>
-          <a class="btn" href="https://play.google.com/store/apps/details?id=com.nightcode.luci" target="_blank" rel="noopener">
-            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M3.6 1.7 14 12 3.6 22.3c-.3-.2-.5-.6-.5-1V2.7c0-.4.2-.8.5-1zm12 10.3 2.7 2.7-9.5 5.5 6.8-8.2zM5.8 1.5l9.5 5.5-2.7 2.7-6.8-8.2zm12.9 7.6 2.9 1.7c.6.3.6 1.1 0 1.4l-2.9 1.7L15.6 12l3.1-2.9z"/></svg>
+          <a class="btn" href="https://play.google.com/store/apps/details?id=com.nightcode.luci" target="_blank"
+            rel="noopener">
+            <svg viewBox="0 0 24 24" fill="currentColor">
+              <path
+                d="M3.6 1.7 14 12 3.6 22.3c-.3-.2-.5-.6-.5-1V2.7c0-.4.2-.8.5-1zm12 10.3 2.7 2.7-9.5 5.5 6.8-8.2zM5.8 1.5l9.5 5.5-2.7 2.7-6.8-8.2zm12.9 7.6 2.9 1.7c.6.3.6 1.1 0 1.4l-2.9 1.7L15.6 12l3.1-2.9z" />
+            </svg>
             Google Play Pre-release
           </a>
         </div>
@@ -238,7 +246,8 @@
         <li><b>Network Topology</b>Visualize your network layout for both DSA and swconfig switch configurations.</li>
         <li><b>Wireless Status</b>WPA3-SAE aware wireless status and connected-client management.</li>
         <li><b>Multi-Router Support</b>Manage several OpenWrt routers seamlessly from a single app.</li>
-        <li><b>Secure Storage</b>Router credentials stored with hardware-backed encryption on-device — never transmitted.</li>
+        <li><b>Secure Storage</b>Router credentials stored with hardware-backed encryption on-device — never
+          transmitted.</li>
       </ul>
     </section>
 
@@ -298,7 +307,7 @@
       var lightboxClose = document.getElementById('lightboxClose');
       var lightboxPrev = document.getElementById('lightboxPrev');
       var lightboxNext = document.getElementById('lightboxNext');
-      
+
       if (!loading || !fallback || !grid) return;
 
       var currentImages = [];
@@ -343,7 +352,7 @@
           '9_wireless': 'Wireless Radios & SSIDs',
           '10_system': 'System Info & Firmware',
           '11_storage': 'Storage & Mount Points',
-          '12_realtime_charts': 'Realtime Traffic & Bandwidth Charts',
+          '12_realtime_charts': 'Realtime Traffic Metrics',
           '13_dhcp_dns': 'DHCP Leases & DNS Server',
           '14_firewall': 'Firewall Zones & Rules',
           '15_firewall-1': 'Port Forwarding & Rules',
@@ -354,15 +363,20 @@
           '20-settings-community': 'App Settings (Community Edition)',
           '20-settings-playstore': 'App Settings (Play Store)',
           '21-more': 'Tools & Diagnostics',
-          '22-about': 'About & Open Source Credits'
+          '22-about': 'About'
         };
         var base = filename.replace(/\.[^.]+$/, '');
         if (map[base]) return map[base];
-        return base.replace(/^\d+[_-]?/, '').replace(/[_-]/g, ' ').replace(/\b\w/g, function(l){ return l.toUpperCase(); });
+        return base.replace(/^\d+[_-]?/, '').replace(/[_-]/g, ' ').replace(/\b\w/g, function (l) { return l.toUpperCase(); });
       }
 
       function renderGrid(images) {
         images.sort(function (a, b) {
+          var isTabletA = a.name.includes('packagemanager') || a.name.includes('about') || a.name.endsWith('.png');
+          var isTabletB = b.name.includes('packagemanager') || b.name.includes('about') || b.name.endsWith('.png');
+          if (isTabletA && !isTabletB) return 1;
+          if (!isTabletA && isTabletB) return -1;
+
           var numA = parseInt((a.name.match(/^\d+/) || [0])[0], 10);
           var numB = parseInt((b.name.match(/^\d+/) || [0])[0], 10);
           if (numA !== numB) return numA - numB;
@@ -373,9 +387,11 @@
         grid.innerHTML = '';
 
         images.forEach(function (f, idx) {
+          var isTablet = f.name.includes('packagemanager') || f.name.includes('about') || f.name.endsWith('.png');
+          var isMore = f.name.includes('21-more');
           var title = formatTitle(f.name);
           var card = document.createElement('div');
-          card.className = 'shot-card';
+          card.className = 'shot-card' + (isTablet ? ' shot-card--wide' : '') + (isMore ? ' shot-card--full' : '');
           card.setAttribute('role', 'button');
           card.setAttribute('tabindex', '0');
           card.setAttribute('aria-label', title);
