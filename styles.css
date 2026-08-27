@@ -657,8 +657,8 @@ section:last-child { margin-bottom: 0; }
 .shot-card img {
   width: 100%;
   height: auto;
-  aspect-ratio: 9 / 19.5;
-  object-fit: cover;
+  max-height: 440px;
+  object-fit: contain;
   display: block;
   background: var(--bg-elev2);
 }
