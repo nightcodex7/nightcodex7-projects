@@ -21,6 +21,9 @@
   <!-- Performance & Resource Hints -->
   <link rel="preconnect" href="https://www.googletagmanager.com">
   <link rel="dns-prefetch" href="https://www.googletagmanager.com">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
 
   <!-- Open Graph / Facebook -->
   <meta property="og:site_name" content="nightcode.co.in">
@@ -49,15 +52,17 @@
     var storedTheme = localStorage.getItem('theme');
     var theme = storedTheme || (prefersDark ? 'dark' : 'light');
     document.documentElement.setAttribute('data-theme', theme);
+    var sunIcon = '<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"/><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/></svg>';
+    var moonIcon = '<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>';
     document.addEventListener('DOMContentLoaded', function(){
       var toggle = document.getElementById('themeToggle');
       if (!toggle) return;
-      toggle.textContent = theme === 'dark' ? '☾' : '☀';
+      toggle.innerHTML = theme === 'dark' ? moonIcon : sunIcon;
       toggle.addEventListener('click', function(){
         var nextTheme = document.documentElement.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
         document.documentElement.setAttribute('data-theme', nextTheme);
         localStorage.setItem('theme', nextTheme);
-        toggle.textContent = nextTheme === 'dark' ? '☾' : '☀';
+        toggle.innerHTML = nextTheme === 'dark' ? moonIcon : sunIcon;
       });
     });
     var mq = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)');
@@ -66,7 +71,7 @@
       var t = e.matches ? 'dark' : 'light';
       document.documentElement.setAttribute('data-theme', t);
       var toggle = document.getElementById('themeToggle');
-      if (toggle) toggle.textContent = t === 'dark' ? '☾' : '☀';
+      if (toggle) toggle.innerHTML = t === 'dark' ? moonIcon : sunIcon;
     });
   })();
   </script>
@@ -99,7 +104,9 @@
     <div class="nav-inner">
       <a href="index.html" class="nav-brand"><span class="prompt">nightcodex7</span>:<span class="cursor">~</span>$</a>
       <button class="theme-toggle" id="themeToggle" type="button" aria-label="Toggle dark and light mode" title="Toggle theme">☀</button>
-      <button class="nav-toggle" aria-label="Toggle menu" aria-expanded="false">menu</button>
+      <button class="nav-toggle" aria-label="Toggle menu" aria-expanded="false">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+      </button>
     <ul class="nav-links" id="navLinks">
       <li><a href="index.html">~/home</a></li>
       <li><a href="app.html">~/app</a></li>
